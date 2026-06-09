@@ -1,0 +1,361 @@
+React JS – Complete Concepts Guide with Definitions & Real-World Examples
+1. What is React JS?
+Definition: React is a JavaScript library used to build fast and interactive user interfaces (UI), especially Single Page Applications (SPAs).
+Developed by: Meta Platforms
+Real-world Example
+Instagram Feed
+Facebook News Feed
+Netflix UI
+WhatsApp Web
+Instead of reloading the entire page, React updates only the changed parts.
+2. Components
+Definition: Components are reusable pieces of UI.
+Example
+JSX
+function Welcome() {
+  return <h1>Hello User</h1>;
+}
+Real-world Example
+An e-commerce website:
+Navbar Component
+Product Component
+Cart Component
+Footer Component
+Each section is a separate component.
+3. JSX (JavaScript XML)
+Definition: JSX allows writing HTML inside JavaScript.
+Example
+JSX
+const element = <h1>Hello React</h1>;
+Without JSX
+JavaScript
+React.createElement("h1", null, "Hello React");
+Real-world Example
+JSX
+<div>
+  <h1>Amazon</h1>
+  <button>Add to Cart</button>
+</div>
+4. Props
+Definition: Props are used to pass data from Parent Component to Child Component.
+Example
+JSX
+function Student(props){
+  return <h1>{props.name}</h1>;
+}
+
+<Student name="Krishna" />
+Real-world Example
+Employee Details:
+JSX
+<Employee
+ name="Hari"
+ designation="Developer"
+/>
+5. State
+Definition: State stores dynamic data inside a component.
+Example
+JSX
+import { useState } from "react";
+
+function Counter(){
+ const [count,setCount] = useState(0);
+
+ return(
+   <>
+    <h1>{count}</h1>
+    <button onClick={() => setCount(count+1)}>
+      Increment
+    </button>
+   </>
+ );
+}
+Real-world Example
+Shopping Cart Count
+Login Status
+Notification Count
+6. Event Handling
+Definition: React handles user actions like click, submit, hover.
+Example
+JSX
+function App(){
+
+ function clickMe(){
+   alert("Button Clicked");
+ }
+
+ return(
+   <button onClick={clickMe}>
+      Click
+   </button>
+ );
+}
+Real-world Example
+Login Button
+Search Button
+Payment Button
+7. Conditional Rendering
+Definition: Displaying UI based on conditions.
+Example
+JSX
+function App(){
+
+ const isLoggedIn = true;
+
+ return(
+   <>
+   {isLoggedIn ? <h1>Welcome</h1> : <h1>Login</h1>}
+   </>
+ );
+}
+Real-world Example
+Netflix:
+User logged in → Show Movies
+User not logged in → Show Login Page
+8. Lists and Keys
+Definition: Used to render multiple items.
+Example
+JSX
+const fruits = ["Apple","Banana","Mango"];
+
+function App(){
+ return(
+   <ul>
+    {fruits.map((fruit,index)=>
+      <li key={index}>{fruit}</li>
+    )}
+   </ul>
+ );
+}
+Real-world Example
+Product Listings
+Student Records
+Employee Data
+9. Forms
+Definition: Used to collect user input.
+Example
+JSX
+function App(){
+
+ const [name,setName] = useState("");
+
+ return(
+   <input
+     value={name}
+     onChange={(e)=>setName(e.target.value)}
+   />
+ );
+}
+Real-world Example
+Login Form
+Registration Form
+Feedback Form
+10. Controlled Components
+Definition: Form data controlled by React State.
+Example
+JSX
+<input
+ value={name}
+ onChange={(e)=>setName(e.target.value)}
+/>
+Real-world Example
+Registration Page Validation.
+11. useState Hook
+Definition: Manages state in functional components.
+Example
+JSX
+const [age,setAge] = useState(20);
+Real-world Example
+Counter
+Cart Quantity
+Toggle Menu
+12. useEffect Hook
+Definition: Performs side effects after rendering.
+Example
+JSX
+useEffect(()=>{
+ console.log("Component Loaded");
+},[]);
+Real-world Example
+API Calls
+Fetch User Data
+Notifications
+13. useRef Hook
+Definition: Access DOM elements directly.
+Example
+JSX
+const inputRef = useRef();
+
+<input ref={inputRef}/>
+Real-world Example
+Auto-focus Search Box.
+14. useMemo Hook
+Definition: Optimizes expensive calculations.
+Example
+JSX
+const result = useMemo(()=>{
+ return calculateData();
+},[]);
+Real-world Example
+Large E-commerce Product Filtering.
+15. useCallback Hook
+Definition: Memoizes functions.
+Example
+JSX
+const handleClick = useCallback(()=>{
+ console.log("Clicked");
+},[]);
+Real-world Example
+Large Dashboard Applications.
+16. Context API
+Definition: Shares data globally without prop drilling.
+Example
+JSX
+const UserContext = createContext();
+Real-world Example
+Theme
+Language
+User Information
+17. React Router
+Definition: Navigation between pages.
+Example
+JSX
+<Route path="/home" element={<Home />} />
+Real-world Example
+Home Page
+About Page
+Contact Page
+18. Lifecycle Methods
+Class Component Lifecycle:
+Mounting
+Updating
+Unmounting
+Example
+JSX
+componentDidMount(){
+ console.log("Loaded");
+}
+Real-world Example
+Loading User Profile Data.
+19. Virtual DOM
+Definition: React creates a lightweight copy of the Real DOM.
+Working
+State Changes
+Virtual DOM Updates
+Difference Calculation
+Only Changed Elements Update
+Real-world Example
+Facebook Feed Updates.
+20. React Fragments
+Definition: Group elements without extra DOM nodes.
+Example
+JSX
+<>
+ <h1>Hello</h1>
+ <p>React</p>
+</>
+21. Higher Order Components (HOC)
+Definition: Function that takes a component and returns another component.
+Example
+JSX
+const Enhanced = withAuth(Profile);
+Real-world Example
+Authentication Checks.
+22. Custom Hooks
+Definition: Reusable Hook Logic.
+Example
+JSX
+function useCounter(){
+ const [count,setCount] = useState(0);
+ return {count,setCount};
+}
+Real-world Example
+Shared API Logic.
+23. Error Boundaries
+Definition: Catch UI errors.
+Real-world Example
+If Product Page crashes, whole application won't crash.
+24. Redux
+Definition: Centralized State Management.
+Flow
+
+Component
+↓
+Action
+↓
+Reducer
+↓
+Store
+↓
+Component
+Real-world Example
+Amazon Cart Management.
+25. React Query / TanStack Query
+Definition: Server State Management.
+Real-world Example
+Fetching products from backend.
+26. Lazy Loading
+Definition: Load components only when required.
+Example
+JSX
+const Home = React.lazy(() => import('./Home'));
+Real-world Example
+Netflix loads pages only when opened.
+27. Code Splitting
+Definition: Break application into smaller bundles.
+Benefit
+Faster Loading
+Better Performance
+28. Portals
+Definition: Render components outside parent DOM hierarchy.
+Real-world Example
+Modals
+Popups
+Dialog Boxes
+29. React Memo
+Definition: Prevents unnecessary re-rendering.
+Example
+JSX
+export default React.memo(MyComponent);
+Real-world Example
+Large Dashboards.
+30. React Performance Optimization
+Techniques:
+React.memo
+useMemo
+useCallback
+Lazy Loading
+Code Splitting
+Virtual DOM
+React Interview Concepts Summary
+React Introduction
+Components
+JSX
+Props
+State
+Event Handling
+Conditional Rendering
+Lists & Keys
+Forms
+Controlled Components
+Hooks
+useState
+useEffect
+useRef
+useMemo
+useCallback
+Context API
+React Router
+Lifecycle Methods
+Virtual DOM
+Fragments
+HOC
+Custom Hooks
+Error Boundaries
+Redux
+React Query
+Lazy Loading
+Code Splitting
+Portals
+Performance Optimization
+These 30 concepts cover most React development and React interview topics, from beginner to advanced level.
